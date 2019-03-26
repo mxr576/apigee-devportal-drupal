@@ -14,15 +14,9 @@ For more details read the [Apigee Edge module documentation](https://www.drupal.
 
 ## Module status
 
-The core functionality of this module is complete and we are currently completing final testing and critical
-issue fixes. We encourage you to download and evaluate the module, and to use our 
-[GitHub issue queue](https://github.com/apigee/apigee-edge-drupal/issues) to give feedback, ask questions, 
-or log issues.
+The core functionality of this module is complete and we are currently completing final testing and critical issue fixes. We encourage you to download and evaluate the module, and to use our [GitHub issue queue](https://github.com/apigee/apigee-edge-drupal/issues) to give feedback, ask questions, or log issues.
 
-Following the same concept of [Drupal 8 Experimental modules](https://www.drupal.org/core/experimental), 
-some submodules are marked as "Experimental". They are provided for evaluation and testing purposes but are still 
-considered to be in development. Experimental modules are included in the "Apigee (Experimental)" package
- on the "Extend" page of a Drupal site (/admin/modules).
+Following the same concept of [Drupal 8 Experimental modules](https://www.drupal.org/core/experimental),  some submodules are marked as "Experimental". They are provided for evaluation and testing purposes but are still  considered to be in development. Experimental modules are included in the "Apigee (Experimental)" package  on the "Extend" page of a Drupal site (/admin/modules).
 
 # Planned features
 * __Team Roles__: Site admins can manage roles and permissions available for developers in teams submodule.
@@ -32,24 +26,15 @@ considered to be in development. Experimental modules are included in the "Apige
 
 **Note**: The Apigee Edge module requires Drupal 8.6.x or higher and PHP 7.1 or higher.
 
-The Apigee Edge module may require Drupal core or contributed module
-patches to be able to work properly. These patches can be applied
-automatically when Apigee Edge module gets installed but for that your
-Drupal installation must fulfill the following requirements:
+The Apigee Edge module may require Drupal core or contributed module patches to be able to work properly. These patches can be applied automatically when Apigee Edge module gets installed but for that your Drupal installation must fulfill the following requirements:
 
 1. [cweagans/composer-patches](https://packagist.org/packages/cweagans/composer-patches) >= 1.6.5 has to be installed.
-2. ["Allowing patches to be applied from dependencies
-"](https://github.com/cweagans/composer-patches/tree/1.6.5#allowing-patches-to-be-applied-from-dependencies)
-has to be enabled in Drupal's composer.json.
-3. Proper [patch level](https://github.com/cweagans/composer-patches/pull/101#issue-104810467)
-for drupal/core has to be set in Drupal's composer.json.
+2. ["Allowing patches to be applied from dependencies"](https://github.com/cweagans/composer-patches/tree/1.6.5#allowing-patches-to-be-applied-from-dependencies) has to be enabled in Drupal's composer.json.
+3. Proper [patch level](https://github.com/cweagans/composer-patches/pull/101#issue-104810467) for drupal/core has to be set in Drupal's composer.json.
 
-You can find the currently required patches in the Apigee Edge module's [composer.json](https://github.com/apigee/apigee-edge-drupal/blob/8.x-1.x/composer.json)
-and in the Apigee Edge PHP API Client's [composer.json](https://github.com/apigee/apigee-client-php/blob/2.x/composer.json).
+You can find the currently required patches in the Apigee Edge module's [composer.json](https://github.com/apigee/apigee-edge-drupal/blob/8.x-1.x/composer.json) and in the Apigee Edge PHP API Client's [composer.json](https://github.com/apigee/apigee-client-php/blob/2.x/composer.json).
 
-**If you do not have all required patches applied in your Drupal
-installation you may experience some problems with the Apigee Edge
-module.**
+**If you do not have all required patches applied in your Drupal installation you may experience some problems with the Apigee Edge module.**
 
 1. Install the Apigee Edge module using [Composer](https://getcomposer.org/).
   Composer will download the Apigee Edge module and all its dependencies.
@@ -59,7 +44,6 @@ module.**
    cd /path/to/drupal/root
    composer require drupal/apigee_edge
    ```
-
     For more information about installing contributed modules using composer, see [the official documentation](https://www.drupal.org/docs/develop/using-composer/using-composer-to-manage-drupal-site-dependencies#managing-contributed).
 2. Click **Extend** in the Drupal administration menu.
 3. Select the **Apigee Edge** module.
@@ -67,13 +51,8 @@ module.**
 
 ## Notes
 
-* If you do not configure the connection between Drupal and Apigee Edge, you will not be able to register developers on
-  the site and may cause other issues with Drupal core functions. If you do not plan to configure the connection between 
-  Drupal and Apigee Edge, you should uninstall the Apigee Edge module.
-* When you first install the module, existing users in the Drupal site may not have a developer account in Apigee Edge.
-  You can run [developer synchronization](https://www.drupal.org/docs/8/modules/apigee-edge/synchronize-developers-with-apigee-edge)
-  to make sure Drupal users and Apigee Edge developers are synchronized.
-
+* If you do not configure the connection between Drupal and Apigee Edge, you will not be able to register developers on the site and may cause other issues with Drupal core functions. If you do not plan to configure the connection between Drupal and Apigee Edge, you should uninstall the Apigee Edge module.
+* When you first install the module, existing users in the Drupal site may not have a developer account in Apigee Edge. You can run [developer synchronization](https://www.drupal.org/docs/8/modules/apigee-edge/synchronize-developers-with-apigee-edge) to make sure Drupal users and Apigee Edge developers are synchronized.
 
 ## Requirements
 
