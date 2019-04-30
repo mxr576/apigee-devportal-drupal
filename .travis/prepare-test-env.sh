@@ -37,7 +37,11 @@ composer update ${COMPOSER_GLOBAL_OPTIONS}
 
 # Allow to run tests with a specific Drupal core version (ex.: latest dev).
 if [[ -n "${DRUPAL_CORE}" ]]; then
-  composer require drupal/core:${DRUPAL_CORE} webflo/drupal-core-require-dev:${DRUPAL_CORE} ${COMPOSER_GLOBAL_OPTIONS};
+  if [[ "${DRUPAL_CORE}" == 8.7* ]]; then
+    composer require drupal/core:${DRUPAL_CORE} webflo/drupal-core-require-dev:${DRUPAL_CORE} ${COMPOSER_GLOBAL_OPTIONS} egulias/email-validator:^2.0;
+  else
+      composer require drupal/core:${DRUPAL_CORE} webflo/drupal-core-require-dev:${DRUPAL_CORE} ${COMPOSER_GLOBAL_OPTIONS};
+  fi
 fi
 
 # Downgrade dependencies if needed.
