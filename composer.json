@@ -15,7 +15,6 @@
     "require-dev": {
         "behat/mink" : "dev-master#9ea1cebe",
         "drush/drush": "^9.0",
-        "egulias/email-validator": "1.2.14",
         "phpunit/phpunit": "^6.5",
         "webflo/drupal-core-require-dev": "^8.7.0"
     },
