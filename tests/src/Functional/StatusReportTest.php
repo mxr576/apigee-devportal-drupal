@@ -96,7 +96,7 @@ class StatusReportTest extends ApigeeEdgeFunctionalTestBase {
     $key->save();
 
     $this->drupalGet($status_report_path);
-    $this->assertSession()->pageTextContains('Unauthorized');
+    $this->assertSession()->pageTextContains('Invalid host or public key. Please provide the valid host and key value.');
     $this->assertSession()->pageTextContains(self::CANNOT_CONNECT_LONG);
 
     // Create new Apigee Edge OAuth key with private file provider.

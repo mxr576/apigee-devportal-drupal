@@ -270,8 +270,8 @@ class AuthenticationFormJsTest extends ApigeeEdgeFunctionalJavascriptTestBase {
     // Test invalid password.
     $random_pass = $this->randomString();
     $page->fillField('Password', $random_pass);
-    $this->assertSendRequestMessage('.messages--error', "Failed to connect to Apigee Edge. The given username ({$this->username}) or password is incorrect. Error message: Unauthorized");
-    $web_assert->elementContains('css', 'textarea[data-drupal-selector="edit-debug-text"]', 'HTTP/1.1 401 Unauthorized');
+    $this->assertSendRequestMessage('.messages--error', "Failed to connect to Apigee Edge. Error message: Invalid host or public key. Please provide the valid host and key value.");
+    $web_assert->elementContains('css', 'textarea[data-drupal-selector="edit-debug-text"]', 'HTTP/1.1 500 Server Error');
     $web_assert->elementContains('css', 'textarea[data-drupal-selector="edit-debug-text"]', '***credentials***');
     $web_assert->elementNotContains('css', 'textarea[data-drupal-selector="edit-debug-text"]', $random_pass);
     $page->fillField('Password', $this->password);
@@ -287,7 +287,7 @@ class AuthenticationFormJsTest extends ApigeeEdgeFunctionalJavascriptTestBase {
     // Test invalid endpoint.
     $invalid_domain = "{$this->randomGenerator->word(16)}.example.com";
     $page->fillField('Apigee Edge endpoint', "http://{$invalid_domain}/");
-    $this->assertSendRequestMessage('.messages--error', "Failed to connect to Apigee Edge. The given endpoint (http://{$invalid_domain}/) is incorrect or something is wrong with the connection. Error message: cURL error 6: Could not resolve host: {$invalid_domain} (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)");
+    $this->assertSendRequestMessage('.messages--error', "Failed to connect to Apigee Edge. The given endpoint (http://{$invalid_domain}/) is incorrect or something is wrong with the connection. Error message: cURL error 6: Could not resolve: {$invalid_domain} (Domain name not found) (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)");
     $web_assert->elementContains('css', 'textarea[data-drupal-selector="edit-debug-text"]', "\"endpoint\": \"http:\/\/{$invalid_domain}\/\"");
     $web_assert->fieldValueEquals('Apigee Edge endpoint', "http://{$invalid_domain}/");
     $page->fillField('Apigee Edge endpoint', '');
@@ -296,7 +296,7 @@ class AuthenticationFormJsTest extends ApigeeEdgeFunctionalJavascriptTestBase {
     $this->cssSelect('select[data-drupal-selector="edit-key-input-settings-auth-type"]')[0]->setValue('oauth');
     $invalid_domain = "{$this->randomGenerator->word(16)}.example.com";
     $page->fillField('Authorization server', "http://{$invalid_domain}/");
-    $this->assertSendRequestMessage('.messages--error', "Failed to connect to the OAuth authorization server. The given authorization server (http://{$invalid_domain}/) is incorrect or something is wrong with the connection. Error message: cURL error 6: Could not resolve host: {$invalid_domain} (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)");
+    $this->assertSendRequestMessage('.messages--error', "Failed to connect to the OAuth authorization server. The given authorization server (http://{$invalid_domain}/) is incorrect or something is wrong with the connection. Error message: cURL error 6: Could not resolve: {$invalid_domain} (Domain name not found) (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)");
     $web_assert->fieldValueEquals('Authorization server', "http://{$invalid_domain}/");
     $web_assert->elementContains('css', 'textarea[data-drupal-selector="edit-debug-text"]', '"auth_type": "oauth"');
     $web_assert->elementContains('css', 'textarea[data-drupal-selector="edit-debug-text"]', "\"authorization_server\": \"http:\/\/{$invalid_domain}\/\"");
